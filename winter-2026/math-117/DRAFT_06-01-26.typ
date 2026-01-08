@@ -1,8 +1,8 @@
 #import "../../template.typ": *
 
 #set document(
-  title: "MATH 117 Notes 1/6/2026 (Draft)",
-  date: datetime(year: 2026, month: 1, day: 6),
+  title: "MATH 117 Notes Jan. 6 2026 (Draft)",
+  date: datetime(day: 6, month: 1, year: 2026),
 )
 
 #title()
