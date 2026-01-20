@@ -65,7 +65,7 @@ We define $overline(z) := x - i y$ to be the *complex conjugate* of $z$.
 - $overline((z_1 + z_2)) = overline(z_1) + overline(z_2)$
 - $overline(z_1 z_2) = overline(z_1) dot overline(z_2)$
 - $z + overline(z) = 2"Re"(z)$
-- $z dot overline(z) = 2"Im"(z)$
+- $z - overline(z) = 2"Im"(z)$
 
 Thus conjugation is a bijection from $CC --> CC$, where $z |-> overline(z)$, that preserves addition and multiplication. Note that this bijection is of order 2; that is, $overline(overline(z)) = z$.
 
