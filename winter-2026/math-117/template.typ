@@ -23,7 +23,7 @@
     // number-align: left,
     header: context {
       if counter(page).get().first() == 1 {
-        box(width: 100%, height: 100%, fill: orange, outset: (left: 2.5cm, right: 2.6cm))[
+        box(width: 100%, height: 100%, fill: colors.orange, outset: (left: 2.5cm, right: 2.6cm))[
           #set align(horizon)
           #text(fill: white, size: 20pt)[
             #grid(
@@ -48,7 +48,7 @@
   doc
 }
 
-#let lemma = lemma.with(options: (color: blue))
-#let note = note.with(options: (color: gray))
-#let remark = remark.with(options: (color: gray))
+#let lemma = lemma.with(options: (color: colors.blue))
+#let note = note.with(options: (color: colors.gray))
+#let remark = remark.with(options: (color: colors.gray))
 #let proof = proof.with(suffix: qed)
