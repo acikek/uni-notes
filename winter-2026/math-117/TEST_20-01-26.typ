@@ -1,58 +1,11 @@
-#import "@preview/theoretic:0.3.0"
-#import theoretic.presets.bar: *
-#show ref: theoretic.show-ref
+#import "template.typ": *
 
 #set document(
   title: "MATH 117 Notes Jan. 20, 2026",
   date: datetime(day: 20, month: 1, year: 2026),
 )
 
-#let draft = true
-
-#let black = rgb(56, 45, 57)
-#let orange = rgb(254, 118, 72)
-#let blue = rgb(91, 133, 170)
-#let green = rgb(124, 174, 122)
-#let gray = rgb(135, 108, 137)
-#let light_gray = rgb(200, 186, 201)
-
-#let qed = square(width: 0.5em, stroke: none, fill: light_gray)
-
-#set page(
-  paper: "a4",
-  // numbering: "1",
-  // number-align: left,
-  header: context {
-    if counter(page).get().first() == 1 {
-      box(width: 100%, height: 100%, fill: orange, outset: (left: 2.5cm, right: 2.6cm))[
-        #set align(horizon)
-        #text(fill: white, size: 20pt)[
-          #grid(
-            align: (left, right),
-            columns: (100%, 1fr),
-            [*_ #document.title _*], if draft { [Draft] } else { none },
-          )
-        ]
-      ]
-    } else {
-      none
-    }
-  },
-)
-
-
-#set text(font: "Fira Sans", fill: black, size: 12pt)
-
-#show math.equation: set text(font: "Fira Math", fill: black)
-#show math.equation.where(block: true): block.with(width: 100%)
-// #set math.equation(numbering: "(1)")
-
-#set enum(numbering: "(i)")
-
-#let lemma = lemma.with(options: (color: blue))
-#let note = note.with(options: (color: gray))
-#let remark = remark.with(options: (color: gray))
-#let proof = proof.with(suffix: qed)
+#show: doc => template(doc, draft: true)
 
 #lemma(<7>, number: 7)[][
   Suppose that $f(n)$ is a sequence in $RR$ or $CC$. Suppose further that $f(n) -> ell_1$ and $f(n) -> ell_2$ as $n -> oo$. Then $ell_1 = ell_2$.
