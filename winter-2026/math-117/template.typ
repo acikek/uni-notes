@@ -6,16 +6,17 @@
   gray: rgb(135, 108, 137),
   light_gray: rgb(200, 186, 201),
   orange: rgb(254, 118, 72),
+  red: rgb(157, 47, 85),
   blue: rgb(91, 133, 170),
   green: rgb(124, 174, 122),
 )
 
 #let qed = square(width: 0.5em, stroke: none, fill: colors.light_gray)
 
-#let template = (doc, draft: true) => {
+#let template(doc, draft: true) = {
   show ref: theoretic.show-ref
 
-  set text(font: "Fira Sans", fill: black, size: 12pt)
+  set text(font: "Fira Sans", fill: colors.black, size: 12pt)
 
   set page(
     paper: "a4",
@@ -39,7 +40,7 @@
     },
   )
 
-  show math.equation: set text(font: "Fira Math", fill: black)
+  show math.equation: set text(font: "Fira Math", fill: colors.black)
 
   show math.equation.where(block: true): block.with(width: 100%)
 
@@ -48,7 +49,18 @@
   doc
 }
 
+#let definition = definition.with(options: (color: colors.orange))
 #let lemma = lemma.with(options: (color: colors.blue))
+#let proof = proof.with(suffix: qed)
+#let example = example.with(options: (color: colors.green))
 #let note = note.with(options: (color: colors.gray))
 #let remark = remark.with(options: (color: colors.gray))
-#let proof = proof.with(suffix: qed)
+#let exercise = exercise.with(options: (color: colors.red))
+
+#let limbar = (
+  u: $limits(overline(lim))$,
+  l: $limits(underline(lim))$,
+)
+
+#let ulim(char) = $limbar.u_(#char -> oo)$
+#let llim(char) = $limbar.l_(#char -> oo)$
