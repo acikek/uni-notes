@@ -10,49 +10,59 @@
 #show: doc => template(doc, draft: true)
 
 #lemma(<11>, number: 11)[][
-  + Let $f(n)$ and $g(n)$ be sequences in $RR$ with $f(n) -> ell$, $g(n) -> m$ as $n -> oo$. Suppose that $f(n) <= g(n)$ for all sufficiently large $n$. Then $ell <= m$.
+  + Let $f(n)$ and $g(n)$ be sequences in $RR$ with $f(n) -> ell$ and  $g(n) -> m$ as $n -> oo$. Suppose that $f(n) <= g(n)$ for all sufficiently large $n$. Then $ell <= m$.
 
-  + Suppose that $f(n) <= g(n) <= h(n)$ for all sufficiently large $n$, and $f(n) -> ell, h(n) -> ell$ as $n -> oo$. Then $g(n)$ converges, and $g(n) -> ell$ as $n -> oo$.
+  + Suppose that $f(n) <= g(n) <= h(n)$ for all sufficiently large $n$. Suppose further that $f(n) -> ell$ and $h(n) -> ell$ as $n -> oo$. Then $g(n)$ converges, and $g(n) -> ell$ as $n -> oo$.
 ]
 
 #proof[@11[--].i][
-  We are given that $exists n_0 in NN$ such that $f(n) <= g(n) thick forall n >= n_0$.
+  We are given that, for some natural number $n_0$, $f(n) <= g(n)$ for all $n >= n_0$. Additionally, given $epsilon > 0$, there are also numbers $n_1$ and $n_2$ for which
 
-  Given $epsilon > 0$, $exists n_1 in NN$ such that $forall n >= n_1$, $|f(n)- ell| < epsilon$, and $exists n_2 in NN$ such that $forall n >= n_2$, $|g(n) - m| < epsilon$. Hence $forall n >= max { n_0, n_1, n_2 }$, we have
+  $
+    abs(f(n) - ell) & < epsilon thick forall n >= n_1 \
+         |g(n) - m| & < epsilon thick forall n >= n_2.
+  $
+
+  Hence, for all values of $n >= max{ n_0, n_1, n_2 }$, we have
 
   $
     ell - epsilon < f(n) <= g(n) < m + epsilon
   $
 
-  So $ell - m < 2epsilon$.
+  Thus, $ell - m < 2epsilon$.
 
-  Now we cannot have $ell - m > 0$, because in this case, all we would have to do is choose $epsilon = (ell - m) slash 2$ and obtain $ell - m < ell - m$, which is a contradiction. So $ell - m <= 0$, i.e. $ell <= m$.
+  If $ell - m > 0$, we could choose $epsilon = (ell - m) slash 2$, which would imply $ell - m < ell - m$, a contradiction. Therefore, $ell - m <= 0$, and so $ell <= m$.
 ]
 
 #corollary(number: none)[][
-  If $f(n) <= K$ for all sufficiently large $n$, and $f(n) -> ell$ as $n -> oo$, then $ell <= K$. (This is obtained from the above by setting $g(n) = K thick forall n$.)
+  If $f(n) <= K$ for all sufficiently large $n$, and $f(n) -> ell$ as $n -> oo$, then $ell <= K$. (This is obtained from the above by setting $g(n) = K$ for all $n$.)
 ]
 
 #note()[
-  Set $f(n) = 1 - 1 slash n$. ($star$)
-
-  Then $lim_(n -> oo)(1 - 1 slash n) = 1$.
-
-  We have $f(n) < K ==> f(n) <= K ==> ell <= K$ i.e. the inequality is not strict; we must have $ell <= K$ as ($star$) shows with $ell = K = 1$.
+  Let $f(n) = 1 - 1 slash n$. Then $f(n) < 1$ for all $n$, but $limits(lim)_(n -> oo) f(n) = 1$. Here, the limit of $f(n)$ does not fall under the same strict inequality that the sequence itself does. More generally, $f(n) < K$ implies $f(n) <= K$, meaning $limits(lim)_(n -> oo) f(n) <= K$.
 ]
 
 #proof[@11[--].ii][
-  $exists n_0 in NN$ such that $forall n >= n_0$, $f(n) <= g(n) < h(n)$. Given $epsilon > 0$, $exists n_1, n_2$ such that $forall n >= n_1, |f(n) - ell| < epsilon$ and $forall n >= n_2, |h(n) - ell| < epsilon$. Hence if $n >= max { n_1, n_2, n_3 }$, then
+  There is some $n_0 in NN$ such that for all $n >= n_0$,
+
+  $
+    f(n) <= g(n) <= h(n).
+  $
+
+  Given $epsilon > 0$, there are also natural numbers $n_1$ and $n_2$ such that
+
+  $
+    |f(n) - ell| < & epsilon thick forall n >= n_1 \
+    |h(n) - ell| < & epsilon thick forall n >= n_2.
+  $
+
+  Hence, if $n >= max { n_1, n_2, n_3 }$, then
 
   $
     ell - epsilon < f(n) <= g(n) <= h(n) < ell + epsilon.
   $
 
-  $
-    ==> |g(n) - ell| < epsilon.
-  $
-
-  Hence $g(n)$ converges, and $g(n) -> ell$ as $n -> oo$.
+  By definition, this means $g(n)$ converges to $ell$ as $n -> oo$.
 ]
 
 #example[
@@ -60,7 +70,7 @@
     0 < 1 / (n sqrt(n)) <= 1 / n.
   $
 
-  We know that $lim_(n -> oo) = 0$. Hence $lim_(n -> oo) 1 / (n sqrt(n))$ exists and is equal to zero.
+  We know that $limits(lim)_(n -> oo) = 0$. Hence, $limits(lim)_(n -> oo) 1 / (n sqrt(n))$ exists and is equal to zero.
 ]
 
 #definition(number: none)[
@@ -81,25 +91,23 @@
   Let $f(n)$ be a sequence in $RR$. Suppose that
 
   + $f$ is increasing
-  + $f$ is bounded above (i.e. $exists K in RR$ such that $f(n) <= K thick forall n$)
+  + $f$ is bounded above; that is, there is some $K in RR$ such that $f(n) <= K$ for all $n$
 
   Then $f$ converges to some limit.
 ]
 
 #proof[
-  Let $ell = sup { f(n) : n in NN }$.
+  Let $F = { f(n) : n in NN }$ be the set of all values in the sequence. Moreover, let $ell = sup(F)$, which exists because $K$ is an upper bound of $F$. Then $f(n) <= ell$ for all values of $n$.
 
-  [Let $F = { f(n) : n in NN }$, the set of all values of the sequence. Note that $K$ is an upper bound of $F$, and so $sup(F)$ exists by the upper bound (or completeness) axiom].
+  Since $ell$ is the least upper bound, $ell - epsilon$ is not an upper bound of $F$ for any $epsilon > 0$. Therefore, there exists a natural number $n_0$ for which $ell - epsilon < f(n_o)$.
 
-  Then $f(n) <= ell thick forall n in NN$.
+  Since $f$ is increasing, for every $n >= n_0$, we have $f(n_0) <= f(n)$. It follows that
 
-  But, given $epsilon > 0$, $ell - epsilon$ is not an upper bound of $F$.
+  $
+    ell - epsilon < f(n_0) <= f(n) <= ell <= ell + epsilon thick forall n >= n_0.
+  $
 
-  Therefore, $exists n_0 in NN$ such that $ell - epsilon < f(n_o)$.
-
-  Since $f$ is increasing, $forall n >= n_0$, we have $f(n_0) <= f(n)$.
-
-  So $forall n >= n_0$, $ell - epsilon < f(n_0) <= f(n) <= ell < ell + epsilon$ i.e. $abs(f(n) - ell) < epsilon$, and this proves the result.
+  Equivalently, $abs(f(n) - ell) < epsilon$. This proves the result.
 ]
 
 #corollary(number: none)[
@@ -107,13 +115,7 @@
 ]
 
 #proof[
-  $f(n)$ decreasing $=> -f(n)$ increasing.
-
-  $f(n)$ bounded below $=> -f(n)$ bounded above.
-
-  @12[-] implies that $-f(n) -> -ell$ for some $ell$.
-
-  Hence $f(n) -> ell$ as $n -> oo$.
+  If $f(n)$ is decreasing, then $-f(n)$ is increasing. Additionally, if $f(n)$ is bounded below, then $-f(n)$ is bounded above. @12[-] implies that $-f(n)$ converges to some limit $ell$. Hence, $f(n) -> ell$ as $n -> oo$.
 ]
 
 #exercise(number: none)[
@@ -121,13 +123,13 @@
 ]
 
 #example[
-  Suppose that $0 < k < 1$, $k in RR$. Then $k^n -> 0$ as $n -> oo$.
+  Suppose $k$ is a real number where $0 < k < 1$. Then $k^n -> 0$ as $n -> oo$.
 ]
 
 #proof[
-  If $f(n) = k^n$, then $f(n)$ is decreasing, and $f(n) > 0 thick forall n$. Hence $k^n -> ell$ where $ell >= 0$.
+  The sequence $k^n$ is decreasing, and $k^n > 0$ for every $n$. Hence, $k^n -> ell$ where $ell >= 0$.
 
-  Suppose $k^n -> ell$. Then $k dot k^n -> k dot ell$. But $k dot k^n = k^(n + 1)$, and this is the same sequence. Hence $k^(n + 1) -> ell$. Therefore $k dot ell = ell$. Since $k != 1$, it follows that $ell = 0$.
+  Suppose $k^n -> ell$. Then $k dot k^n -> k dot ell$. But $k dot k^n = k^(n + 1)$, and this is the same sequence. Hence $k^(n + 1) -> ell$, and $k dot ell = ell$. Since $k != 1$, it follows that $ell = 0$.
 ]
 
 #example[
@@ -135,15 +137,15 @@
 ]
 
 #proof[
-  $f(n) = n^(-1 slash q)$ is a decreasing function of $n$, and $n^(-1 slash q) > 0$. So, by @12[-], $n^(-1 slash q)$ tends to a limit $ell >= 0$, as $n -> oo$. Now,
+  $f(n) = n^(-1 slash q)$ is a decreasing function of $n$, and $n^(-1 slash q) > 0$. So, by @12[-], the sequence $n^(-1 slash q)$ tends to a limit $ell >= 0$ as $n -> oo$. Now,
 
   $
     1 / (n^(1 slash q)) -> ell quad & ==> quad 1/n -> ell^q \
-                                    & ==> quad ell^q = 0 \
-                                    & ==> quad ell = 0.
+                                    & ==> quad ell^q = 0
+                                      quad ==> quad ell = 0.
   $
 
-  (Similarly, if $p in NN$, then $(1 / (n^(1 slash q)))^p -> 0$ as $n -> oo$).
+  Similarly, if $p$ is a natural number, then $(1 / (n^(1 slash q)))^p -> 0$ as $n -> oo$.
 ]
 
 #example[
@@ -151,21 +153,23 @@
 ]
 
 #proof[
-  If $k > 1$, then the sequence $k^(1 slash n)$ is decreasing, and $k^(1 slash n) >= 1$. So @12[-] implies that $k^(1 slash n) -> ell$ for some $ell >= 1$.
+  If $k > 1$, then the sequence $k^(1 slash n)$ is decreasing, and $k^(1 slash n) >= 1$. @12[-] tells us that $k^(1 slash n) -> ell$ for some $ell >= 1$.
 
-  Suppose that $ell = 1 + delta$, $delta > 0$.
-
-  Now
+  Suppose that $ell = 1 + delta$ for some $delta >= 0$. Then for all $n$,
 
   $
-            k^(1 slash n) & >= ell = 1 + delta "(Theorem 12)" \
-              therefore k & >= (1 + delta)^n \
-                          & = 1 + n delta + n (n - 1) delta^2 + dots.c + delta^n \
-                          & >= 1 + n delta quad forall n \
-    therefore (k - 1) / n & >= delta quad forall n
+    k^(1 slash n) & >= ell = 1 + delta \
+                k & >= (1 + delta)^n \
+                k & = 1 + n delta + n (n - 1) delta^2 + dots.c + delta^n \
+                k & >= 1 + n delta. \
+                  \
   $
 
-  Since $delta > 0$, this is a contradiction (since the sequence tends to 0), and so we must have $delta = 0$.
+  Therefore,
 
-  If $k < 1$, then $1 / k > 1$, and so $(1 / k)^(1 slash n) -> 1$, and therefore $k^(1 slash n) -> 1$ as $n -> oo$.
+  $
+    (k - 1) / n & >= delta.
+  $
+
+  The left-hand sequence tends to zero, so $delta$ must equal $0$, meaning $ell = 0$.
 ]
