@@ -5,10 +5,12 @@
   black: rgb(56, 45, 57),
   gray: rgb(135, 108, 137),
   light_gray: rgb(200, 186, 201),
+  red: rgb("#d4346c"),
   orange: rgb(254, 118, 72),
-  red: rgb(157, 47, 85),
-  blue: rgb(91, 133, 170),
+  yellow: rgb(224, 190, 54),
   green: rgb(124, 174, 122),
+  blue: rgb(91, 133, 170),
+  purple: rgb(155, 98, 225),
 )
 
 #let qed = square(width: 0.5em, stroke: none, fill: colors.light_gray)
@@ -49,13 +51,15 @@
   doc
 }
 
-#let definition = definition.with(options: (color: colors.orange))
-#let lemma = lemma.with(options: (color: colors.blue))
+#let definition = definition.with(options: (color: colors.red))
+#let theorem = theorem.with(options: (color: colors.orange))
+#let lemma = lemma.with(options: (color: colors.yellow))
 #let proof = proof.with(suffix: qed)
-#let example = example.with(options: (color: colors.green))
+#let corollary = corollary.with(options: (color: colors.green))
 #let note = note.with(options: (color: colors.gray))
 #let remark = remark.with(options: (color: colors.gray))
-#let exercise = exercise.with(options: (color: colors.red))
+#let example = example.with(options: (color: colors.blue))
+#let exercise = exercise.with(options: (color: colors.purple))
 
 #let limbar = (
   u: $limits(overline(lim))$,
