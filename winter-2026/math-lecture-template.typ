@@ -15,7 +15,7 @@
 
 #let qed = square(width: 0.5em, stroke: none, fill: colors.light_gray)
 
-#let template(doc, draft: true) = {
+#let base-template(doc, color: white, draft: true) = {
   show ref: theoretic.show-ref
 
   set text(font: "Fira Sans", fill: colors.black, size: 12pt)
@@ -25,20 +25,19 @@
     // numbering: "1",
     // number-align: left,
     header: context {
-      if counter(page).get().first() == 1 {
-        box(width: 100%, height: 100%, fill: colors.orange, outset: (left: 2.5cm, right: 2.6cm))[
-          #set align(horizon)
-          #text(fill: white, size: 20pt)[
-            #grid(
-              align: (left, right),
-              columns: (100%, 1fr),
-              [*_ #document.title _*], if draft { [Draft] } else { none },
-            )
-          ]
-        ]
-      } else {
-        none
+      if counter(page).get().first() > 1 {
+        return none
       }
+      box(width: 100%, height: 100%, fill: color, outset: (left: 2.5cm, right: 2.6cm))[
+        #set align(horizon)
+        #text(fill: white, size: 20pt)[
+          #grid(
+            align: (left, right),
+            columns: (100%, 1fr),
+            [*_ #document.title _*], if draft { [Draft] } else { none },
+          )
+        ]
+      ]
     },
   )
 
@@ -60,11 +59,3 @@
 #let remark = remark.with(options: (color: colors.gray))
 #let example = example.with(options: (color: colors.blue))
 #let exercise = exercise.with(options: (color: colors.purple))
-
-#let limbar = (
-  u: $limits(overline(lim))$,
-  l: $limits(underline(lim))$,
-)
-
-#let ulim(char) = $limbar.u_(#char -> oo)$
-#let llim(char) = $limbar.l_(#char -> oo)$

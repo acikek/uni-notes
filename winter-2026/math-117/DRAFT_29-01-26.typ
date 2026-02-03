@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "lecture-template.typ": *
 
 #set document(
   title: "MATH 117 Notes Jan. 29, 2026",
