@@ -15,6 +15,8 @@
 
 #let qed = square(width: 0.5em, stroke: none, fill: colors.light_gray)
 
+#let div = line(length: 100%, stroke: colors.light_gray + 1pt)
+
 #let base-template(doc, color: white, draft: true) = {
   show ref: theoretic.show-ref
 
