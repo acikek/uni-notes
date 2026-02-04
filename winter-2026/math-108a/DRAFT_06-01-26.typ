@@ -1,15 +1,11 @@
+#import "lecture-template.typ": *
+
 #set document(
-  title: "MATH 108A Notes Jan 6. 2026 (Draft)",
+  title: "MATH 108A Notes Jan. 6, 2026",
   date: datetime(month: 1, day: 6, year: 2026),
 )
 
-#title()
-
-#let ex(body) = grid(
-  columns: (auto, 1fr),
-  column-gutter: 0.5em,
-  smallcaps[*Ex.*], body,
-)
+#show: template
 
 = Introduction
 
@@ -67,29 +63,27 @@ The real numbers $RR$ and the complex numbers $CC$ are examples of *fields*.
 + *Distributivity* \
   $forall alpha, beta, gamma in CC$, $alpha (beta + gamma) = alpha beta + alpha gamma$ and $(alpha + beta) gamma = alpha gamma + beta gamma$
 
-#ex[
-  Consider $2 + 3i in CC$. The additive inverse is $-2 - 3i$, and the multiplicative inverse can be found like so:
+*Example.*
+Consider $2 + 3i in CC$. The additive inverse is $-2 - 3i$, and the multiplicative inverse can be found like so:
 
-  $
-    1 / (2 + 3i) dot (2 - 3i) / (2 - 3i) = 2 / 13 - (3i) / 13
-  $
-]
+$
+  1 / (2 + 3i) dot (2 - 3i) / (2 - 3i) = 2 / 13 - (3i) / 13
+$
 
-#ex[
-  Prove that $alpha beta = beta alpha$ for every pair $alpha, beta in CC$.
+*Example.*
+Prove that $alpha beta = beta alpha$ for every pair $alpha, beta in CC$.
 
-  *Proof.* Let $a, beta in CC$. Then $alpha = a + b i$ and $beta = c + d i$ for some $a, b, c, d in RR$.
+*Proof.* Let $a, beta in CC$. Then $alpha = a + b i$ and $beta = c + d i$ for some $a, b, c, d in RR$.
 
-  Expanding the expression $alpha beta$, we get:
+Expanding the expression $alpha beta$, we get:
 
-  $
-    alpha beta & = (a + b i) (c + d i) \
-               & = a c + a d i + b c i + b d i^2 \
-               & = c a + d a i + c b i + d b i^2 \
-               & = (c + d i) (a + b i) \
-               & = beta alpha. thick qed
-  $
-]
+$
+  alpha beta & = (a + b i) (c + d i) \
+             & = a c + a d i + b c i + b d i^2 \
+             & = c a + d a i + c b i + d b i^2 \
+             & = (c + d i) (a + b i) \
+             & = beta alpha. thick qed
+$
 
 == Examples of Fields
 
@@ -119,13 +113,12 @@ $
   (x_1, x_2, ..., x_n) + (y_1, y_2, ..., y_n) = (x_1 + y_1, x_2 + y_2, ..., x_n + y_n).
 $
 
-#ex[
-  Observe the addition of two tuples in $RR^3$:
+*Example.*
+Observe the addition of two tuples in $RR^3$:
 
-  $
-    (2, 3, 4) + (-1, 9, -6) = (2 - 1, 3 + 9, 4 - 6) = (1, 12, -2)
-  $
-]
+$
+  (2, 3, 4) + (-1, 9, -6) = (2 - 1, 3 + 9, 4 - 6) = (1, 12, -2)
+$
 
 It follows that the additive identity of $FF^n$ is an $n$-tuple $(0, 0, ..., 0)$ where $0$ is the additive identity of $FF$.
 
@@ -185,14 +178,12 @@ Note that addition is a binary operation, but scalar multiplication is not.
 - $CC^n$ is a vector space over $CC$
 - $FF^n$ is a vector space over $FF$ for any field $FF$
 
-#ex[
-  Is $RR$ a vector space over $RR^2$?
+*Example*.
+Is $RR$ a vector space over $RR^2$?
 
-  *No*. For instance, consider a vector $x in RR$ and a the multiplicative identity $(1, 1) in RR^2$. We would expect $(1, 1) dot x = x$, but in fact $(1, 1) dot x = (x, x) in.not RR$.
-]
+*No*. For instance, consider a vector $x in RR$ and a the multiplicative identity $(1, 1) in RR^2$. We would expect $(1, 1) dot x = x$, but in fact $(1, 1) dot x = (x, x) in.not RR$.
 
-#ex[
-  Is the empty set a vector space?
+*Example.*
+Is the empty set a vector space?
 
-  *No*, the empty set is missing identities ($0$ and $1$). Therefore, a vector space can never be empty.  The simplest vector space is ${ 0 }$ over $RR$.
-]
+*No*, the empty set is missing identities ($0$ and $1$). Therefore, a vector space can never be empty.  The simplest vector space is ${ 0 }$ over $RR$.

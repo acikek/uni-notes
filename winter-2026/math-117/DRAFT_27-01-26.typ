@@ -1,13 +1,11 @@
-// TODO: Credit E.G.
-
-#import "template.typ": *
+#import "lecture-template.typ": *
 
 #set document(
   title: "MATH 117 Notes Jan. 27, 2026",
   date: datetime(day: 27, month: 1, year: 2026),
 )
 
-#show: doc => template(doc, draft: true)
+#show: template
 
 #lemma(<11>, number: 11)[][
   + Let $f(n)$ and $g(n)$ be sequences in $RR$ with $f(n) -> ell$ and  $g(n) -> m$ as $n -> oo$. Suppose that $f(n) <= g(n)$ for all sufficiently large $n$. Then $ell <= m$.

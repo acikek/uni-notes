@@ -1,11 +1,11 @@
-#import "../../template.typ": *
+#import "lecture-template.typ": *
 
 #set document(
-  title: "MATH 117 Notes Jan. 8 2026 (Draft)",
+  title: "MATH 117 Notes Jan. 8, 2026",
   date: datetime(day: 8, month: 1, year: 2026),
 )
 
-#title()
+#show: template
 
 Given an ordered field $S$, we can prove the following statements:
 

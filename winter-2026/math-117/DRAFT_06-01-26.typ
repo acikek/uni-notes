@@ -1,11 +1,11 @@
-#import "../../template.typ": *
+#import "lecture-template.typ": *
 
 #set document(
-  title: "MATH 117 Notes Jan. 6 2026 (Draft)",
+  title: "MATH 117 Notes Jan. 6, 2026",
   date: datetime(day: 6, month: 1, year: 2026),
 )
 
-#title()
+#show: template
 
 _This is the only way to learn mathematics, and if somebody tells you otherwise, they're either lying or trying to con you, and you should run away as fast as possible in the opposite direction._
 
@@ -17,11 +17,10 @@ Analysis is concerned with functions, especially when it comes to continuity, di
 
 When is the latter justified?
 
-#ex[
-  Evaluate the sum $sum_(n = 1)^oo n(1/2)^n = 1 dot 1/2 + 2 dot 1/4 dot 3 dot 1/8 + dots.c$
+*Example.*
+Evaluate the sum $sum_(n = 1)^oo n(1/2)^n = 1 dot 1/2 + 2 dot 1/4 dot 3 dot 1/8 + dots.c$
 
-  Note that $sum_(n = 1)^oo t^n = t / (1 - t)$ when $|t| < 1$.
-]
+Note that $sum_(n = 1)^oo t^n = t / (1 - t)$ when $|t| < 1$.
 
 == Method 1
 

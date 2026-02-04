@@ -1,11 +1,11 @@
-#import "template.typ": *
+#import "lecture-template.typ": *
 
 #set document(
   title: "MATH 117 Notes Jan. 20, 2026",
   date: datetime(day: 20, month: 1, year: 2026),
 )
 
-#show: doc => template(doc, draft: true)
+#show: template
 
 #lemma(<7>, number: 7)[][
   Suppose that $f(n)$ is a sequence in $RR$ or $CC$. Suppose further that $f(n) -> ell_1$ and $f(n) -> ell_2$ as $n -> oo$. Then $ell_1 = ell_2$.

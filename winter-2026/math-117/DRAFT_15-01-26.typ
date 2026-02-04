@@ -1,11 +1,11 @@
-#import "../../template.typ": *
+#import "lecture-template.typ": *
 
 #set document(
-  title: "MATH 117 Notes Jan. 15 2026 (Draft)",
+  title: "MATH 117 Notes Jan. 15, 2026",
   date: datetime(day: 6, month: 1, year: 2026),
 )
 
-#title()
+#show: template
 
 Let $A subset.eq RR$, $A != diameter$. Then $"glb"(A)$, the *infimum* of of $A$, exists when $A$ is bounded below. If $"glb"(A) <= a thick forall a in A$, then $"glb"(A)$ is a lower bound.
 

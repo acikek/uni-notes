@@ -5,7 +5,7 @@
   date: datetime(day: 29, month: 1, year: 2026),
 )
 
-#show: doc => template(doc, draft: true)
+#show: template
 
 #example(number: 4)[][
   $limits(lim)_(n -> oo) n^(1 slash n) = 1$.

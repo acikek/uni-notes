@@ -37,7 +37,6 @@
   Prove the converse.
 ]
 
-
 #box(stroke: colors.light_gray + 1.5pt, inset: 1em, width: 100%)[
   #show heading.where(level: 2): set block(below: 1em)
   #align(center)[
