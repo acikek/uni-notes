@@ -55,6 +55,7 @@
 #let definition = definition.with(options: (color: colors.red))
 #let theorem = theorem.with(options: (color: colors.orange))
 #let lemma = lemma.with(options: (color: colors.yellow))
+#let proposition = proposition.with(options: (color: colors.yellow))
 #let proof = proof.with(suffix: qed)
 #let corollary = corollary.with(options: (color: colors.green))
 #let note = note.with(options: (color: colors.gray))
