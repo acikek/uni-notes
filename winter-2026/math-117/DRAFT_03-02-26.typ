@@ -37,12 +37,7 @@
   Prove the converse.
 ]
 
-#box(stroke: colors.light_gray + 1.5pt, inset: 1em, width: 100%)[
-  #show heading.where(level: 2): set block(below: 1em)
-  #align(center)[
-    == General Properties of Upper and Lower Limits
-  ]
-
+#sbox("General Properties of Upper and Lower Limits")[
   + $limbar.l f(n) <= limbar.u f(n)$.
 
     This is because $inf { f(n) : n >= r } <= sup { f(n) : n >= r }$ for any $r$. Then, we can apply Lemma 11.
