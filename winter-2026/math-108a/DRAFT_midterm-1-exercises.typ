@@ -87,6 +87,7 @@
   Verify that $beta_(3 times 3)$ is a basis by showing that it spans $S_(3 times 3)$ while also being linearly independent.
 ]
 
+// TODO diagram -> diagonal (lol)
 #exercise[
   + Prove $S$, the set of $n times n$ real diagram matrices, is a subspace of $M_(n times n)(RR)$.
 
