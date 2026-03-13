@@ -43,7 +43,7 @@
     },
   )
 
-  show math.equation: set text(font: "Fira Math", fill: colors.black)
+  show math.equation: set text(font: "Fira Math", fill: colors.black, weight: "regular")
 
   show math.equation.where(block: true): block.with(width: 100%)
 
