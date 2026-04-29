@@ -1,7 +1,7 @@
 // TODO: Escape parentheses when using superscripts
 // TODO: Add stylized professor quotes
 
-#import "../math-lecture-template.typ": *
+#import "../../math-lecture-template.typ": *
 
 #let template = base-template.with(color: colors.orange)
 

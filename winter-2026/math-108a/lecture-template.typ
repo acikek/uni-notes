@@ -1,6 +1,6 @@
 // TODO: standardize notation for row, col matrix entry lookups
 
-#import "../math-lecture-template.typ": *
+#import "../../math-lecture-template.typ": *
 
 #let span = math.op("span")
 
