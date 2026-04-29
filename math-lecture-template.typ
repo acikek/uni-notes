@@ -17,6 +17,8 @@
 
 #let div = line(length: 100%, stroke: colors.light_gray + 1pt)
 
+#let cal(..args) = $upright(bold(#args.pos().join($comma$)))$
+
 #let base-template(doc, color: white, draft: true) = {
   show ref: theoretic.show-ref
 
