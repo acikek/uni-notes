@@ -15,13 +15,3 @@
 
 #let ulim(char) = $limbar.u_(#char -> oo)$
 #let llim(char) = $limbar.l_(#char -> oo)$
-
-#let sbox(title, body) = block(stroke: colors.light_gray + 1.5pt, inset: 1em, width: 100%)[
-  #show heading: set block(below: 1em)
-
-  #align(center)[
-    == #title
-  ]
-
-  #body
-]

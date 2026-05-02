@@ -64,3 +64,13 @@
 #let remark = remark.with(options: (color: colors.gray))
 #let example = example.with(options: (color: colors.blue))
 #let exercise = exercise.with(options: (color: colors.purple))
+
+#let sbox(title, body) = block(stroke: colors.light_gray + 1.5pt, inset: 1em, width: 100%)[
+  #show heading: set block(below: 1em)
+
+  #align(center)[
+    == #title
+  ]
+
+  #body
+]
