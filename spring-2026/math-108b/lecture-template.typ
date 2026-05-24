@@ -5,3 +5,5 @@
 #let ip(..args) = $chevron.l #args.pos().join($comma$) chevron.r$
 
 #let span = math.op("span")
+
+#let singval = math.op("SingVal")
